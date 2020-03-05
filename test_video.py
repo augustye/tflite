@@ -7,7 +7,7 @@ from pysenet.filtering import *
 from pysenet.estimator import *
 
 model_path = "model/multi_person_mobilenet_v1_075_float.tflite"
-cam = cv2.VideoCapture("mp4/front.mp4")
+cam = cv2.VideoCapture("mp4/front_480p.mov")
 
 def scale(x,bound,target):
     (a,b) = bound
@@ -76,7 +76,6 @@ while True:
         # validation
         estimator.draw_pose(ef.push(main_p,1.0/(end_t-start_t)), img,-100)
 
-    print("img 3:", img.shape)
     cv2.imshow('trace',img)
 
     # if count > 400:

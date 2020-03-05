@@ -63,10 +63,14 @@ end_t = 0.041
 
 ret,img = cam.read()
 img= crop_image(img)
-# drawn_image = np.zeros(img.shape,'uint8')
+frames = 0
 while True:
     start_t = time.perf_counter()
     ret, img = cam.read()
+    frames += 1
+
+    if frames %7 != 0:
+        continue
     #img = crop_image(img)
     # drawn_image[:] = 0
 
